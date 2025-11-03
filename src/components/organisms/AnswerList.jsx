@@ -4,7 +4,7 @@ import Card from "@/components/atoms/Card";
 import UserInfo from "@/components/molecules/UserInfo";
 import VoteControls from "@/components/molecules/VoteControls";
 import CodeBlock from "@/components/molecules/CodeBlock";
-
+import CommentSection from "@/components/organisms/CommentSection";
 const AnswerList = ({ 
   answers = [], 
   questionAuthorId, 
@@ -118,7 +118,14 @@ const AnswerList = ({
                     updatedAt={answer.updatedAt}
                   />
                 </div>
-              </div>
+</div>
+              
+              {/* Comment Section for Answer */}
+              <CommentSection
+                parentId={answer.Id}
+                parentType="answer"
+                currentUserId={1}
+              />
             </div>
           </Card>
         </motion.div>

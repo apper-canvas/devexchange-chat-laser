@@ -95,9 +95,25 @@ class QuestionService {
       throw new Error("Question not found");
     }
     
-    question.acceptedAnswerId = answerId;
+question.acceptedAnswerId = answerId;
     question.updatedAt = new Date().toISOString();
     return { ...question };
+  }
+
+  // Get comments for a question
+  async getComments(questionId) {
+    const commentService = await import('./commentService.js');
+    return commentService.default.getByParent(questionId, 'question');
+  }
+
+  // Add comment to a question
+  async addComment(questionId, commentData) {
+    const commentService = await import('./commentService.js');
+    return commentService.default.create({
+      ...commentData,
+      parentId: questionId,
+      parentType: 'question'
+    });
   }
 }
 

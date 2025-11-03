@@ -11,6 +11,7 @@ import VoteControls from "@/components/molecules/VoteControls";
 import CodeBlock from "@/components/molecules/CodeBlock";
 import AnswerForm from "@/components/organisms/AnswerForm";
 import AnswerList from "@/components/organisms/AnswerList";
+import CommentSection from "@/components/organisms/CommentSection";
 import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import questionService from "@/services/api/questionService";
@@ -153,7 +154,14 @@ const QuestionDetail = () => {
                   updatedAt={question.updatedAt}
                 />
               </div>
-            </div>
+</div>
+            
+            {/* Comment Section for Question */}
+            <CommentSection
+              parentId={question.Id}
+              parentType="question"
+              currentUserId={1}
+            />
           </div>
         </Card>
       </motion.div>
