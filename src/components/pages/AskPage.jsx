@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import AskQuestionForm from "@/components/organisms/AskQuestionForm";
 import AuthModal from "@/components/organisms/AuthModal";
-import ApperIcon from "@/components/atoms/ApperIcon";
+import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 const AskPage = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
