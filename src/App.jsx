@@ -6,6 +6,7 @@ import QuestionPage from "@/components/pages/QuestionPage";
 import AskPage from "@/components/pages/AskPage";
 import TagsPage from "@/components/pages/TagsPage";
 import UsersPage from "@/components/pages/UsersPage";
+import UserDetailPage from "@/components/pages/UserDetailPage";
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/questions/:id" element={<QuestionPage />} />
-        <Route path="/ask" element={<AskPage />} />
+<Route path="/ask" element={<AskPage />} />
         <Route path="/tags" element={<TagsPage />} />
         <Route path="/users" element={<UsersPage />} />
+        <Route path="/users/:id" element={<UserDetailPage />} />
       </Routes>
 
       <ToastContainer
