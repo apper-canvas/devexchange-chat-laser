@@ -22,15 +22,18 @@ function UserDetailPage() {
     loadUser();
   }, [id]);
 
-  const loadUser = async () => {
+const loadUser = async () => {
     try {
       setLoading(true);
       setError(null);
-      const userData = await userService.getById(parseInt(id));
-      if (!userData) {
-        setError('User not found');
+      
+      if (!id) {
+        setError('No user ID provided');
         return;
       }
+      
+      // Try both numeric and string ID formats
+      const userData = await userService.getById(parseInt(id));
       setUser(userData);
     } catch (err) {
       setError('Failed to load user details');
@@ -152,19 +155,19 @@ function UserDetailPage() {
                 {/* Badges */}
                 {user.badges && user.badges.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {user.badges.map((badge, index) => (
+{user.badges.map((badge, index) => (
                       <Badge key={index} variant="secondary" className="text-xs">
                         <ApperIcon name="Medal" size={12} className="mr-1" />
-                        {badge}
+                        {typeof badge === 'string' ? badge : badge.name || 'Badge'}
                       </Badge>
                     ))}
                   </div>
                 )}
 
                 {/* Join Date */}
-                <p className="text-sm text-gray-500">
+<p className="text-sm text-gray-500">
                   <ApperIcon name="Calendar" size={14} className="inline mr-1" />
-                  Member since {new Date(user.joinDate).toLocaleDateString('en-US', {
+                  Member since {new Date(user.joinedAt || user.joinDate || Date.now()).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'

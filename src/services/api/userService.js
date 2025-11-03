@@ -12,12 +12,21 @@ class UserService {
     return [...this.users];
   }
 
-  async getById(id) {
+async getById(id) {
     await delay(200);
-    const user = this.users.find(u => u.Id === id);
-    if (!user) {
-      throw new Error("User not found");
+    
+    // Handle both string and numeric IDs
+    if (!id && id !== 0) {
+      throw new Error("Invalid user ID provided");
     }
+    
+    const searchId = typeof id === 'number' ? `user${id}` : id;
+    const user = this.users.find(u => u.Id === searchId || u.Id === id);
+    
+    if (!user) {
+      throw new Error(`User with ID '${id}' not found`);
+    }
+    
     return { ...user };
   }
 
