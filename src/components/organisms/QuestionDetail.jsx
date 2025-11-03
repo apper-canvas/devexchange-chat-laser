@@ -140,10 +140,16 @@ const QuestionDetail = () => {
               {/* Question Stats */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-6 text-sm text-gray-600">
-                  <span>Asked {formatDistanceToNow(new Date(question.createdAt), { addSuffix: true })}</span>
+<span>Asked {(() => {
+                    const date = new Date(question.createdAt);
+                    return isNaN(date.getTime()) ? 'Invalid date' : formatDistanceToNow(date, { addSuffix: true });
+                  })()}</span>
                   <span>Viewed {question.views} times</span>
-                  {question.updatedAt !== question.createdAt && (
-                    <span>Modified {formatDistanceToNow(new Date(question.updatedAt), { addSuffix: true })}</span>
+{question.updatedAt !== question.createdAt && (
+                    <span>Modified {(() => {
+                      const date = new Date(question.updatedAt);
+                      return isNaN(date.getTime()) ? 'Invalid date' : formatDistanceToNow(date, { addSuffix: true });
+                    })()}</span>
                   )}
                 </div>
 

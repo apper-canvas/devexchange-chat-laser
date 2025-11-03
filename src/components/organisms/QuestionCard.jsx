@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { formatDistanceToNow } from "date-fns";
 import ApperIcon from "@/components/ApperIcon";
 import Card from "@/components/atoms/Card";
 import TagList from "@/components/molecules/TagList";
 import UserInfo from "@/components/molecules/UserInfo";
-
 const QuestionCard = ({ question, index = 0 }) => {
   return (
     <motion.div

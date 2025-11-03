@@ -36,9 +36,15 @@ const CommentItem = ({
     }
   };
 
-  const timeAgo = formatDistanceToNow(new Date(comment.createdAt), { 
-    addSuffix: true 
-  });
+const isValidDate = (dateString) => {
+    if (!dateString) return false;
+    const date = new Date(dateString);
+    return !isNaN(date.getTime());
+  };
+
+  const timeAgo = isValidDate(comment.createdAt) ? 
+    formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true }) : 
+    'Invalid date';
 
   if (isEditing) {
     return (
@@ -81,8 +87,11 @@ const CommentItem = ({
           </div>
           
           {comment.updatedAt !== comment.createdAt && (
-            <div className="text-xs text-gray-400 mt-1">
-              edited {formatDistanceToNow(new Date(comment.updatedAt), { addSuffix: true })}
+<div className="text-xs text-gray-400 mt-1">
+              edited {isValidDate(comment.updatedAt) ? 
+                formatDistanceToNow(new Date(comment.updatedAt), { addSuffix: true }) : 
+                'Invalid date'
+              }
             </div>
           )}
         </div>
