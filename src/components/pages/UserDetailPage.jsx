@@ -8,7 +8,7 @@ import Card from '@/components/atoms/Card';
 import Loading from '@/components/ui/Loading';
 import Error from '@/components/ui/Error';
 import UserInfo from '@/components/molecules/UserInfo';
-import { userService } from '@/services/api/userService';
+import userService from '@/services/api/userService';
 import { toast } from 'react-toastify';
 
 function UserDetailPage() {
