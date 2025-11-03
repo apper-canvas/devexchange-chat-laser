@@ -1,4 +1,5 @@
 import answersData from "@/services/mockData/answers.json";
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 class AnswerService {
@@ -99,24 +100,8 @@ class AnswerService {
     
     // Accept this answer
     answer.isAccepted = true;
-answer.updatedAt = new Date().toISOString();
+    answer.updatedAt = new Date().toISOString();
     return { ...answer };
-  }
-
-  // Get comments for an answer
-  async getComments(answerId) {
-    const commentService = await import('./commentService.js');
-    return commentService.default.getByParent(answerId, 'answer');
-  }
-
-  // Add comment to an answer
-  async addComment(answerId, commentData) {
-    const commentService = await import('./commentService.js');
-    return commentService.default.create({
-      ...commentData,
-      parentId: answerId,
-      parentType: 'answer'
-    });
   }
 }
 

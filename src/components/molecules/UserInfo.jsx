@@ -10,16 +10,10 @@ const UserInfo = ({
   showAvatar = true,
   size = "default" 
 }) => {
-const isValidDate = (dateString) => {
-    if (!dateString) return false;
-    const date = new Date(dateString);
-    return !isNaN(date.getTime());
-  };
-  
-  const isUpdated = updatedAt && isValidDate(updatedAt) && isValidDate(createdAt) && 
-                   new Date(updatedAt) > new Date(createdAt);
+  const isUpdated = updatedAt && new Date(updatedAt) > new Date(createdAt);
   const displayDate = isUpdated ? updatedAt : createdAt;
   const dateLabel = isUpdated ? "edited" : "asked";
+  
   const avatarSize = size === "small" ? "w-8 h-8" : "w-10 h-10";
   const textSize = size === "small" ? "text-xs" : "text-sm";
 
@@ -48,10 +42,6 @@ const isValidDate = (dateString) => {
         
         <span className={`text-gray-500 ${textSize}`}>
           {dateLabel} {formatDistanceToNow(new Date(displayDate), { addSuffix: true })}
-{displayDate && isValidDate(displayDate) ? 
-            formatDistanceToNow(new Date(displayDate), { addSuffix: true }) : 
-            'Date unavailable'
-          }
         </span>
       </div>
     </motion.div>

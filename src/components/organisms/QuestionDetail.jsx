@@ -11,7 +11,6 @@ import VoteControls from "@/components/molecules/VoteControls";
 import CodeBlock from "@/components/molecules/CodeBlock";
 import AnswerForm from "@/components/organisms/AnswerForm";
 import AnswerList from "@/components/organisms/AnswerList";
-import CommentSection from "@/components/organisms/CommentSection";
 import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import questionService from "@/services/api/questionService";
@@ -140,16 +139,10 @@ const QuestionDetail = () => {
               {/* Question Stats */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-6 text-sm text-gray-600">
-<span>Asked {(() => {
-                    const date = new Date(question.createdAt);
-                    return isNaN(date.getTime()) ? 'Invalid date' : formatDistanceToNow(date, { addSuffix: true });
-                  })()}</span>
+                  <span>Asked {formatDistanceToNow(new Date(question.createdAt), { addSuffix: true })}</span>
                   <span>Viewed {question.views} times</span>
-{question.updatedAt !== question.createdAt && (
-                    <span>Modified {(() => {
-                      const date = new Date(question.updatedAt);
-                      return isNaN(date.getTime()) ? 'Invalid date' : formatDistanceToNow(date, { addSuffix: true });
-                    })()}</span>
+                  {question.updatedAt !== question.createdAt && (
+                    <span>Modified {formatDistanceToNow(new Date(question.updatedAt), { addSuffix: true })}</span>
                   )}
                 </div>
 
@@ -160,14 +153,7 @@ const QuestionDetail = () => {
                   updatedAt={question.updatedAt}
                 />
               </div>
-</div>
-            
-            {/* Comment Section for Question */}
-            <CommentSection
-              parentId={question.Id}
-              parentType="question"
-              currentUserId={1}
-            />
+            </div>
           </div>
         </Card>
       </motion.div>
