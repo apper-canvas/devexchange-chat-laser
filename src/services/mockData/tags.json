@@ -1,0 +1,162 @@
+[
+  {
+    "Id": 1,
+    "name": "javascript",
+    "description": "For questions regarding programming in ECMAScript (JavaScript/JS) and its various dialects/implementations (excluding ActionScript).",
+    "questionCount": 1847236,
+    "followers": 234567,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "python",
+    "description": "Python is a multi-paradigm, dynamically typed, multi-purpose programming language.",
+    "questionCount": 1654321,
+    "followers": 198765,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "java",
+    "description": "Java is a high-level object-oriented programming language.",
+    "questionCount": 1543210,
+    "followers": 187654,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "html",
+    "description": "HTML (HyperText Markup Language) is the markup language for creating web pages and web applications.",
+    "questionCount": 987654,
+    "followers": 123456,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 5,
+    "name": "css",
+    "description": "CSS (Cascading Style Sheets) is a representation style sheet language used for describing the look and formatting of HTML.",
+    "questionCount": 876543,
+    "followers": 109876,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 6,
+    "name": "react",
+    "description": "React is a JavaScript library for building user interfaces.",
+    "questionCount": 765432,
+    "followers": 98765,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 7,
+    "name": "nodejs",
+    "description": "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.",
+    "questionCount": 654321,
+    "followers": 87654,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 8,
+    "name": "sql",
+    "description": "Structured Query Language (SQL) is a language for querying databases.",
+    "questionCount": 543210,
+    "followers": 76543,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 9,
+    "name": "php",
+    "description": "PHP is a widely used, open source, general-purpose, multi-paradigm, dynamically typed and interpreted scripting language.",
+    "questionCount": 432109,
+    "followers": 65432,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 10,
+    "name": "c#",
+    "description": "C# (pronounced 'see sharp') is a high level, statically typed, multi-paradigm programming language developed by Microsoft.",
+    "questionCount": 398765,
+    "followers": 54321,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 11,
+    "name": "angular",
+    "description": "Angular is a TypeScript-based open-source web application framework.",
+    "questionCount": 321098,
+    "followers": 43210,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 12,
+    "name": "git",
+    "description": "Git is a distributed version control system (DVCS).",
+    "questionCount": 298765,
+    "followers": 39876,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 13,
+    "name": "docker",
+    "description": "Docker is an open-source project that automates the deployment of applications inside Linux containers.",
+    "questionCount": 276543,
+    "followers": 36543,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 14,
+    "name": "mongodb",
+    "description": "MongoDB is a cross-platform document-oriented database program.",
+    "questionCount": 254321,
+    "followers": 33210,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 15,
+    "name": "typescript",
+    "description": "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
+    "questionCount": 232109,
+    "followers": 29876,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 16,
+    "name": "vue.js",
+    "description": "Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.",
+    "questionCount": 198765,
+    "followers": 26543,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 17,
+    "name": "express",
+    "description": "Express.js is a minimal and flexible Node.js web application framework.",
+    "questionCount": 176543,
+    "followers": 23210,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 18,
+    "name": "mysql",
+    "description": "MySQL is a freely available open source Relational Database Management System (RDBMS).",
+    "questionCount": 165432,
+    "followers": 21098,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 19,
+    "name": "api",
+    "description": "An API (Application Programming Interface) is a computing interface that defines interactions between multiple software intermediaries.",
+    "questionCount": 154321,
+    "followers": 19876,
+    "createdAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "Id": 20,
+    "name": "c++",
+    "description": "C++ is a general-purpose programming language created as an extension of the C programming language.",
+    "questionCount": 143210,
+    "followers": 18765,
+    "createdAt": "2024-01-01T00:00:00Z"
+  }
+]

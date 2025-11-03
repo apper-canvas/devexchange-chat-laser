@@ -1,0 +1,62 @@
+[
+  {
+    "Id": 1,
+    "questionId": 2,
+    "body": "This is actually expected behavior in React! State updates are asynchronous, so when you call `setCount(count + 1)`, the `console.log` runs before the state has actually updated.\n\nHere are a few ways to handle this:\n\n**1. Use the functional update form:**\n```javascript\nconst handleClick = () => {\n  setCount(prevCount => {\n    const newCount = prevCount + 1;\n    console.log(newCount); // This will log the new value\n    return newCount;\n  });\n};\n```\n\n**2. Use useEffect to log after state changes:**\n```javascript\nuseEffect(() => {\n  console.log(count); // This logs whenever count changes\n}, [count]);\n```\n\nThe functional update form is generally preferred when your new state depends on the previous state.",
+    "authorId": "user11",
+    "authorName": "Tom Wilson",
+    "authorReputation": 3456,
+    "votes": 45,
+    "isAccepted": true,
+    "createdAt": "2024-01-14T15:00:00Z",
+    "updatedAt": "2024-01-14T15:00:00Z"
+  },
+  {
+    "Id": 2,
+    "questionId": 3,
+    "body": "Great question! Here's a comprehensive approach to error handling with async/await:\n\n**1. Basic try/catch pattern:**\n```javascript\nasync function fetchData() {\n  try {\n    const response = await fetch('/api/data');\n    \n    if (!response.ok) {\n      throw new Error(`HTTP error! status: ${response.status}`);\n    }\n    \n    const data = await response.json();\n    return data;\n  } catch (error) {\n    console.error('Fetch failed:', error);\n    throw error; // Re-throw to let caller handle it\n  }\n}\n```\n\n**2. Create a wrapper for consistent error handling:**\n```javascript\nconst apiCall = async (url, options = {}) => {\n  try {\n    const response = await fetch(url, options);\n    if (!response.ok) {\n      throw new Error(`${response.status}: ${response.statusText}`);\n    }\n    return await response.json();\n  } catch (error) {\n    // Log error, send to monitoring service, etc.\n    throw new ApiError(error.message, error);\n  }\n};\n```\n\nAlways check `response.ok` because fetch doesn't reject on HTTP error status codes!",
+    "authorId": "user12",
+    "authorName": "Sophie Miller",
+    "authorReputation": 4231,
+    "votes": 67,
+    "isAccepted": true,
+    "createdAt": "2024-01-13T11:30:00Z",
+    "updatedAt": "2024-01-13T13:15:00Z"
+  },
+  {
+    "Id": 3,
+    "questionId": 6,
+    "body": "The performance difference depends on the use case, but here's what you need to know:\n\n**List comprehensions are generally faster** for simple operations:\n\n```python\nimport timeit\n\nlarge_list = range(1000000)\n\n# List comprehension\ntime1 = timeit.timeit(lambda: [x * 2 for x in large_list], number=10)\n\n# Map with lambda\ntime2 = timeit.timeit(lambda: list(map(lambda x: x * 2, large_list)), number=10)\n\nprint(f\"List comprehension: {time1:.4f}s\")\nprint(f\"Map with lambda: {time2:.4f}s\")\n```\n\n**When to use each:**\n- **List comprehension**: More readable, faster for simple operations, more Pythonic\n- **Map**: Better when you already have a function defined, more memory efficient with iterators\n\n```python\n# Good use case for map\ndef expensive_operation(x):\n    return x ** 2 + x ** 3\n\n# This is cleaner with map\nresult = list(map(expensive_operation, large_list))\n# vs\nresult = [expensive_operation(x) for x in large_list]\n```\n\nFor most cases, stick with list comprehensions for readability.",
+    "authorId": "user13",
+    "authorName": "Dr. Python Expert",
+    "authorReputation": 5678,
+    "votes": 52,
+    "isAccepted": true,
+    "createdAt": "2024-01-10T12:15:00Z",
+    "updatedAt": "2024-01-10T14:20:00Z"
+  },
+  {
+    "Id": 4,
+    "questionId": 7,
+    "body": "Storing JWT tokens in localStorage is a common approach, but there are security considerations:\n\n**Security concerns with localStorage:**\n- Vulnerable to XSS attacks\n- Tokens persist even after browser closes\n- Accessible via JavaScript\n\n**Better approaches:**\n\n**1. HttpOnly cookies (most secure):**\n```javascript\n// Server sets httpOnly cookie\nres.cookie('token', jwt, {\n  httpOnly: true,\n  secure: true,\n  sameSite: 'strict',\n  maxAge: 15 * 60 * 1000 // 15 minutes\n});\n```\n\n**2. Memory storage with automatic refresh:**\n```javascript\nclass AuthManager {\n  constructor() {\n    this.token = null;\n    this.refreshToken = localStorage.getItem('refreshToken');\n  }\n  \n  async getValidToken() {\n    if (!this.token || this.isTokenExpiring()) {\n      await this.refreshAccessToken();\n    }\n    return this.token;\n  }\n  \n  isTokenExpiring() {\n    const payload = JSON.parse(atob(this.token.split('.')[1]));\n    return payload.exp * 1000 - Date.now() < 60000; // Refresh if < 1min left\n  }\n}\n```\n\n**Best practices:**\n- Use short-lived access tokens (15-30 minutes)\n- Store refresh tokens securely\n- Implement automatic token refresh\n- Always use HTTPS in production",
+    "authorId": "user14",
+    "authorName": "Security Guru",
+    "authorReputation": 6789,
+    "votes": 89,
+    "isAccepted": true,
+    "createdAt": "2024-01-09T15:45:00Z",
+    "updatedAt": "2024-01-09T18:30:00Z"
+  },
+  {
+    "Id": 5,
+    "questionId": 10,
+    "body": "You can achieve different alignments within a flexbox container using `margin: auto` on specific items:\n\n```css\n.container {\n  display: flex;\n}\n\n.item-left {\n  /* Stays on the left naturally */\n}\n\n.item-center {\n  margin: 0 auto; /* Centers this item */\n}\n\n.item-right {\n  margin-left: auto; /* Pushes this item to the right */\n}\n```\n\n**HTML:**\n```html\n<div class=\"container\">\n  <div class=\"item-left\">Left</div>\n  <div class=\"item-center\">Center</div>\n  <div class=\"item-right\">Right</div>\n</div>\n```\n\n**Alternative using gap and flex-grow:**\n```css\n.container {\n  display: flex;\n  gap: 1rem;\n}\n\n.spacer {\n  flex-grow: 1; /* Takes up remaining space */\n}\n```\n\n```html\n<div class=\"container\">\n  <div>Left</div>\n  <div class=\"spacer\"></div>\n  <div>Right 1</div>\n  <div>Right 2</div>\n</div>\n```\n\nThe `margin: auto` approach is cleaner and doesn't require extra elements.",
+    "authorId": "user15",
+    "authorName": "CSS Master",
+    "authorReputation": 3987,
+    "votes": 29,
+    "isAccepted": true,
+    "createdAt": "2024-01-06T13:15:00Z",
+    "updatedAt": "2024-01-06T13:15:00Z"
+  }
+]

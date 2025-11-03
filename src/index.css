@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import 'react-toastify/dist/ReactToastify.css';
+
+.Toastify__toast-container {
+  z-index: 9999;
+  top: 1rem;
+  right: 1rem;
+}
+
+.Toastify__toast {
+  background: white;
+  color: #0A0A0B;
+  border: 1px solid #E3E6E8;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 56px;
+  padding: 16px;
+}
+
+.Toastify__toast--success {
+  border-left: 4px solid #5FA637;
+}
+
+.Toastify__toast--error {
+  border-left: 4px solid #D1383D;
+}
+
+.Toastify__toast--warning {
+  border-left: 4px solid #F1B24A;
+}
+
+.Toastify__toast--info {
+  border-left: 4px solid #0077CC;
+}
+
+.Toastify__progress-bar {
+  background: linear-gradient(to right, #F48024, #FFA500);
+}
+
+@layer utilities {
+  .code-block {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+  }
+  
+  .code-block pre {
+    @apply m-0 text-sm leading-relaxed;
+  }
+  
+  .vote-button {
+    @apply w-10 h-10 flex items-center justify-center rounded border border-gray-300 bg-white hover:bg-gray-50 transition-all duration-150 hover:scale-110 hover:border-primary;
+  }
+  
+  .vote-button.active {
+    @apply bg-primary border-primary text-white;
+  }
+  
+  .tag-pill {
+    @apply inline-block px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors duration-150 cursor-pointer;
+  }
+  
+  .reputation-badge {
+    @apply inline-flex items-center px-2 py-1 text-xs bg-warning text-white rounded-full font-medium;
+  }
+  
+  .question-card {
+    @apply bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .answer-card {
+    @apply bg-white border-l-4 border-gray-200 pl-6 pr-6 py-4;
+  }
+  
+  .answer-card.accepted {
+    @apply border-l-success bg-green-50;
+  }
+}
